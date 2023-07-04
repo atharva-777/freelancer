@@ -1,9 +1,9 @@
-const userModel = require("../models/clientModel");
+const clientModel = require("../models/clientModel");
 
 const cloginController = async (req, res) => {
     try {
         const {email,password } = req.body;
-        const user = await userModel.findOne({email, password });
+        const user = await clientModel.findOne({email, password });
 
         if (!user) {
             res.status(404).send(`User not found`)
@@ -27,7 +27,7 @@ const cloginController = async (req, res) => {
 // Register USer
 const cregisterController = async (req, res) => {
     try {
-        const newUser = new userModel(req.body);
+        const newUser = new clientModel(req.body);
         await newUser.save();
         res.status(201).json({
             success: true,
@@ -42,7 +42,19 @@ const cregisterController = async (req, res) => {
     }
 }
 
-module.exports = { cloginController, cregisterController }
 
 
 
+const editInfo = async(req,res)=>{
+    try {
+        await clientModel.findOneAndUpdate({_id:req.body.clientId}, req.body.payload);
+        res.status(200).send("Edited Successfully..!")
+    } catch (error) {
+        console.log(error);
+        res.status(500).json(error);
+    }
+} 
+
+
+
+    module.exports = { cloginController, cregisterController, editInfo }
