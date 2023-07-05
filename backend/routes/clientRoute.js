@@ -7,7 +7,7 @@ const router = express.Router();
 
 // routers
 // POST || LOGIN
-router.post('/login', cloginController);
+// router.post('/login', cloginController);
 
 // POST || REGISTER
 router.post('/register', cregisterController);

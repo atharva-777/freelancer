@@ -2,6 +2,10 @@ const mongoose = require("mongoose");
 
 // schema design 
 const userSchema = new mongoose.Schema({
+    clientId:{
+        type: mongoose.Schema.Types.ObjectId,
+        required:[true,"Id is must"]
+    },
     title:{
         type: String, 
         require:[true, "title is required"]

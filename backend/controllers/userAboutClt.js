@@ -12,7 +12,7 @@ const edituser = async(req,res)=>{
 } 
 
 
-module.exports = { floginController, fregisterController, edituser }
+module.exports = edituser;
 
 
 
