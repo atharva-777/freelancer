@@ -1,14 +1,10 @@
-import Header from './components/layout/Header';
-import './App.css';
-import ForTalent from './components/ForTalent';
+import "./App.css";
+import Home from "./Pages/Home";
 
 function App() {
   return (
     <div className="App">
-      <header className="">
-        <Header></Header>
-        <ForTalent></ForTalent>
-      </header>
+      <Home></Home>
     </div>
   );
 }
