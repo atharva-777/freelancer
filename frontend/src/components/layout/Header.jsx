@@ -1,19 +1,11 @@
-import React, { useState } from 'react';
-import logo from '../assets/logo.png';
-import {Link} from 'react-router-dom';
-
+  import React from "react";
+import logo from "../../assets/logo.png";
 
 function Header() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleMenu = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <header className="flex items-center justify-between p-4 bg-slate-50">
       <div className="flex items-center">
-        <img src={logo} alt="Logo" className="h-5 w-auto mr-2" />
+        <img src={logo} alt="Logo" className="h-6 w-auto mr-2" />
       </div>
       <div className="flex items-center">
         <div className="md:hidden">
@@ -47,11 +39,9 @@ function Header() {
             isOpen ? 'block' : 'hidden'
           } md:ml-4 mt-4 md:mt-0`}
         >
-          {/* <a href="#" >
+          <a href="#" className="mx-4 md:mx-0">
             Login
-          </a> */}
-
-          <Link to="/login" className="mx-4 md:mx-0">Login</Link>
+          </a>
           {!isOpen && (
             <button className="bg-green-500 hover:bg-green-600 text-white mx-4 font-bold py-2 px-4 rounded-full">
               Sign Up

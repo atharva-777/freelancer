@@ -5,7 +5,10 @@ import HomePage from './pages/HomePage';
 function App() {
   return (
     <div className="App">
-      <HomePage/>
+      <header className="">
+        <Header></Header>
+        <ForTalent></ForTalent>
+      </header>
     </div>
   );
 }
