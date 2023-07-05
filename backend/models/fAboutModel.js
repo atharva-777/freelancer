@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 // schema design 
 const aboutSchema = new mongoose.Schema({
     userid:{
-        type:String,
+        type: mongoose.Schema.Types.ObjectId,
         required:[true,"Id is required"]
     },
     domain:{

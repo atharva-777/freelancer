@@ -27,7 +27,7 @@ const clientSchema = new mongoose.Schema({
     contactNumber: {
       type: String,
       required: [true, "Contact number is required"],
-    },
+    }
   });
   
   const clientModel = mongoose.model('hiringClients', clientSchema);

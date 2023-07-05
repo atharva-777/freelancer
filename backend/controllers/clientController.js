@@ -1,27 +1,26 @@
 const clientModel = require("../models/clientModel");
 const jobModel = require("../models/jobModule");
 
-const cloginController = async (req, res) => {
-    try {
-        const {email,password } = req.body;
-        const user = await clientModel.findOne({email, password });
+// const cloginController = async (req, res) => {
+//     try {
+//         const {email,password } = req.body;
+//         const user = await clientModel.findOne({email, password });
 
-        if (!user) {
-            res.status(404).send(`User not found`)
-        }
-        res.status(200).json({
-            success: true,
-            user
-        });
+//         if (!user) {
+//             res.status(404).send(`User not found`)
+//         }
+//         res.status(200).json({
+//             success: true,
+//             user
+//         });
 
-
-    } catch (error) {
-        res.status(400).json({
-            success: false,
-            error
-        })
-    }
-}
+//     } catch (error) {
+//         res.status(400).json({
+//             success: false,
+//             error
+//         })
+//     }
+// }
 
 
 
@@ -75,4 +74,4 @@ const postJob = async(req,res) =>{
 
 
 
-module.exports = { cloginController, cregisterController, editInfo, postJob }
+module.exports = { cregisterController, editInfo, postJob }

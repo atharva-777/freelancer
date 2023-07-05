@@ -4,6 +4,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 // const colors = require("colors");
 const connectDb = require("./config/connectDb");
+const loginController = require("./controllers/loginController");
 
 // config env File
 dotenv.config();
@@ -24,9 +25,13 @@ app.get('/', (req, res) => {
 
 // Routes
 
+//common route
+app.post('/api/v1/login', loginController);
+
 // user routes
 app.use("/api/v1/users", require("./routes/userRoute"));
 
+//client route
 app.use("/api/v1/client", require("./routes/clientRoute"));
 
 
