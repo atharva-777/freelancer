@@ -1,5 +1,5 @@
 const express = require("express");
-const { floginController, fregisterController } = require("../controllers/fuserController");
+const { floginController, fregisterController,search } = require("../controllers/fuserController");
 
 // router Object
 
@@ -11,6 +11,9 @@ router.post('/login', floginController);
 
 // POST || REGISTER
 router.post('/register', fregisterController);
+
+//POST || SEACRH
+router.post('/search', search);
 
 
 module.exports = router;

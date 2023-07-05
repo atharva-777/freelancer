@@ -1,10 +1,14 @@
-import "./App.css";
-import Home from "./Pages/Home";
+
+import './App.css';
+import HomePage from './pages/HomePage';
 
 function App() {
   return (
     <div className="App">
-      <Home></Home>
+      <header className="">
+        <Header></Header>
+        <ForTalent></ForTalent>
+      </header>
     </div>
   );
 }
