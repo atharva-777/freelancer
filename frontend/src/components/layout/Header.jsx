@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.png';
+import {Link} from 'react-router-dom';
+
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,9 +47,11 @@ function Header() {
             isOpen ? 'block' : 'hidden'
           } md:ml-4 mt-4 md:mt-0`}
         >
-          <a href="#" className="mx-4 md:mx-0">
+          {/* <a href="#" >
             Login
-          </a>
+          </a> */}
+
+          <Link to="/login" className="mx-4 md:mx-0">Login</Link>
           {!isOpen && (
             <button className="bg-green-500 hover:bg-green-600 text-white mx-4 font-bold py-2 px-4 rounded-full">
               Sign Up

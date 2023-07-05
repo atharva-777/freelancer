@@ -1,4 +1,5 @@
 const clientModel = require("../models/clientModel");
+const jobModel = require("../models/jobModule");
 
 const cloginController = async (req, res) => {
     try {
@@ -31,7 +32,7 @@ const cregisterController = async (req, res) => {
         await newUser.save();
         res.status(201).json({
             success: true,
-            newUser
+            // newUser
         });
 
     } catch (error) {
@@ -56,5 +57,22 @@ const editInfo = async(req,res)=>{
 } 
 
 
+const postJob = async(req,res) =>{
+    try {
+        const newJob = new jobModel(req.body);
+        await newJob.save();
+        res.status(201).json({
+            success: true,
+        });
 
-    module.exports = { cloginController, cregisterController, editInfo }
+    } catch (error) {
+        res.status(400).json({
+            success: false,
+            error
+        })
+    }
+}
+
+
+
+module.exports = { cloginController, cregisterController, editInfo, postJob }
