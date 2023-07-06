@@ -1,7 +1,13 @@
-  import React from "react";
+import React, { useState } from 'react';
 import logo from "../../assets/logo.png";
 
 function Header() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setIsOpen(!isOpen);
+  };
+
   return (
     <header className="flex items-center justify-between p-4 bg-slate-50">
       <div className="flex items-center">
@@ -36,7 +42,7 @@ function Header() {
         </div>
         <nav
           className={`md:flex md:items-center ${
-            isOpen ? 'block' : 'hidden'
+            isOpen ? "block" : "hidden"
           } md:ml-4 mt-4 md:mt-0`}
         >
           <a href="#" className="mx-4 md:mx-0">

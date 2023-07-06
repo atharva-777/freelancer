@@ -82,7 +82,7 @@ const applyForJob = async (req, res) => {
   
       // Create an application object
       const application = {
-        jobPostId: jobId,
+        jobId: jobId,
         freelancerId: freelancerId,
         status: 'Pending' // You can set an initial status for the application
       };
