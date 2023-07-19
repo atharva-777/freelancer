@@ -15,9 +15,11 @@ function FirstSection() {
           <br />
           Right now. Right here.
         </p>
-        <button className="bg-green-500 hover:bg-green-600 text-white mt-4 md:mt-2 sm:m-auto md:ml-20 font-bold py-2 px-14 my-0  ml-20 rounded-full">
-          Continue
-        </button>
+        <a href="/login">
+          <button className="bg-green-500 hover:bg-green-600 text-white mt-4 md:mt-2 sm:m-auto md:ml-20 font-bold py-2 px-14 my-0  ml-20 rounded-full">
+            Continue
+          </button>
+        </a>
       </div>
       <div className="flex justify-center">
         <img className="w-64 md:w-96" src={landing} alt="" />

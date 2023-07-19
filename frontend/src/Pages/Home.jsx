@@ -1,15 +1,19 @@
 import React from "react";
-import Header from "../components/layout/Header";
 import ForTalent from "../components/ForTalent";
 import FirstSection from "../components/FirstSection";
 import UpYourWork from "../components/layout/UpYourWork";
 import ForClint from "../components/ForClint";
 import Footer from "../components/layout/Footer";
+import NavbarWithCTAButton from "../components/layout/NavbarWithCTAButton";
+import {
+  HorizontalCard,
+  HorizontalCard2,
+} from "../components/HorizontalCardForTalent";
 
 const Home = () => {
   return (
     <header className="">
-      <Header></Header>
+      <NavbarWithCTAButton></NavbarWithCTAButton>
       <FirstSection></FirstSection>
       <UpYourWork></UpYourWork>
       <ForClint></ForClint>
