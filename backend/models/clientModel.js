@@ -20,15 +20,13 @@ const clientSchema = new mongoose.Schema({
       type: String,
       required: [true, "Company name is required"],
     },
-    jobTitle: {
-      type: String,
-      required: [true, "Job title is required"],
-    },
     contactNumber: {
       type: String,
       required: [true, "Contact number is required"],
     }
-  });
+  },
+  {timestamps:true}
+  );
   
   const clientModel = mongoose.model('hiringClients', clientSchema);
   module.exports = clientModel;

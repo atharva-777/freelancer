@@ -6,7 +6,8 @@ const applicationSchema = new mongoose.Schema({
     freelancerId: { type: mongoose.Schema.Types.ObjectId, ref: 'Freelancer', required: true },
     status: { type: String, required: true },
     // Add more fields as needed
-});
+},
+{timestamps:true});
 
 // Define the models
 const applicationModel = mongoose.model('Application', applicationSchema);

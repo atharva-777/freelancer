@@ -1,18 +1,18 @@
 import "./App.css";
-import Home from "./Pages/Home";
+import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import JoinAsClintOrFreelancer from "./Pages/JoinAsClintOrFreelancer";
-import Login from "./Pages/Login";
-import SignUpFreelancer from "./Pages/SignUpFreelancer";
-import FreelancerHomePage from "./Pages/FreelancerHomePage";
-import SignUpClient from "./Pages/SignUpClient";
-import SignuptofindWork from "./Pages/ SignuptofindWork";
+import JoinAsClintOrFreelancer from "./pages/JoinAsClintOrFreelancer";
+import Login from "./pages/Login";
+import SignUpFreelancer from "./pages/SignUpFreelancer";
+import FreelancerHomePage from "./pages/FreelancerHomePage";
+import SignUpClient from "./pages/SignUpClient";
+import SignuptofindWork from "./pages/ SignuptofindWork";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route
           path="/joinAsClintOrFreelancer"
           element={<JoinAsClintOrFreelancer />}
