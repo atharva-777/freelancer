@@ -1,20 +1,32 @@
-import React from "react";
+"use client";
 import forTalentImg from "../assets/fortalent.jpg";
+import { Card } from "flowbite-react";
 
-function ForTalent() {
+function HorizontalCard() {
   return (
-    <div>
-      <div className="drop-shadow-2xl flex lg:flex-row flex-col m-10 mx-14 p-10 justify-center">
-        <img
-          className="rounded-t-lg lg:rounded-l-lg"
-          src={forTalentImg}
-          alt="forTalentImg"
-        />
-        <div className="bg-gray-700 rounded-b-lg lg:rounded-r-lg">
+    <div className="flex justify-center mx-1">
+      <Card horizontal>
+        <div>
+          <img
+            className="rounded  h-[26vh] "
+            src={forTalentImg}
+            alt="forTalentImg"
+          />
+        </div>
+      </Card>
+    </div>
+  );
+}
+
+function HorizontalCard2() {
+  return (
+    <div className="flex justify-center mx-2">
+      <Card horizontal>
+        <div className="bg-gray-700 rounded-lg rounded-b-lg lg:rounded-r-lg">
           <h2 className="text-white text-2xl lg:text-3xl text-left mx-5 my-5">
             For talent
           </h2>
-          <h1 className="text-white text-4xl lg:text-6xl text-left mx-5 my-10 font-semibold font-serif border-solid tracking-normal">
+          <h1 className="text-white text-4xl lg:text-6xl    text-left mx-5 my-10 font-semibold font-serif border-solid tracking-normal">
             Find
             <br />
             great work
@@ -30,8 +42,9 @@ function ForTalent() {
             </button>
           </div>
         </div>
-      </div>
+      </Card>
     </div>
   );
 }
-export default ForTalent;
+
+export { HorizontalCard, HorizontalCard2 };
