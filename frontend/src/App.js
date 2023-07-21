@@ -7,6 +7,7 @@ import SignUpFreelancer from "./pages/SignUpFreelancer";
 import FreelancerHomePage from "./pages/FreelancerHomePage";
 import SignUpClient from "./pages/SignUpClient";
 import SignuptofindWork from "./pages/ SignuptofindWork";
+import Chat from "./pages/Chat";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/signUpClient" element={<SignUpClient />} />
         <Route path="/freelancerHomePage" element={<FreelancerHomePage />} />
         <Route path="/signuptofindWork" element={<SignuptofindWork />} />
+        <Route path="/chat" element={<Chat />} />
         <Route />
       </Routes>
     </div>
