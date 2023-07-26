@@ -1,5 +1,5 @@
 import React from 'react'
-
+import {Link} from 'react-router-dom'
 
 function ForClint() {
   return (
@@ -23,8 +23,11 @@ function ForClint() {
           </p>
         </div>
         <div className="md:flex ml-6 mt-11 justify-start">
-          <div className="w-52 mx-10 h-16 flex-shrink-0 rounded-md bg-green-500 m-4"></div>
-          <div className="w-52 m-4 mx-10 h-16 flex-shrink-0 rounded-md bg-green-500"></div>
+          <div className="w-48 mx-10 h-12 flex-shrink-0 rounded-md bg-green-500 m-4 text-center">
+            <Link to='/SignUpClient'>
+            Join as Client
+            </Link>
+            </div>
         </div>
       </div>
     </div>

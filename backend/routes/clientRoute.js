@@ -1,5 +1,5 @@
 const express = require("express");
-const { cloginController, cregisterController,postJob } = require("../controllers/clientController");
+const { cregisterController,postJob, drafts } = require("../controllers/clientController");
 
 // router Object
 
@@ -14,6 +14,9 @@ router.post('/register', cregisterController);
 
 //POST || POSTJOB
 router.post('/postjob',postJob);
+
+//GET || HOMEPAGE POSTED JOBS
+router.post('/clientHome',drafts);
 
 
 module.exports = router;

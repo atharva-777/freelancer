@@ -1,5 +1,6 @@
 import React from "react";
 import image1 from "../../assets/image1.png";
+import {Link} from 'react-router-dom'
 
 function UpYourWork() {
   return (
@@ -124,11 +125,11 @@ function UpYourWork() {
               </div>
             </p>
             <div>
-              <a href="/joinAsClintOrFreelancer">
+              <Link to='joinAsClintOrFreelancer'>
                 <button className="md:flex  bg-white hover:bg-gray-200 hover:text-black text-black mt-4 md:mt-2 sm:m-auto md:ml-20 font-bold py-2 px-14 my-0  rounded-full p-0">
                   Sign Up for free
                 </button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

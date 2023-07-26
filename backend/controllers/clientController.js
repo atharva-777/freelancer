@@ -1,5 +1,7 @@
 const clientModel = require("../models/clientModel");
 const jobModel = require("../models/jobModule");
+const bcrypt = require('bcrypt');
+const mongoose = require('mongoose')
 
 // const cloginController = async (req, res) => {
 //     try {
@@ -27,11 +29,23 @@ const jobModel = require("../models/jobModule");
 // Register USer
 const cregisterController = async (req, res) => {
     try {
-        const newUser = new clientModel(req.body);
-        await newUser.save();
+        // const newUser = new clientModel(req.body);
+        const {name, email, password, company, contactNumber} = req.body;
+        // console.log(password);
+        const hashedPassword = await bcrypt.hash(password, 10);
+        // console.log(hashedPassword);
+        const user = await clientModel.create({
+            name, 
+            email, 
+            password: hashedPassword,
+            company, 
+            contactNumber,
+        });
+        delete user.password;
+        // await newUser.save();
         res.status(201).json({
             success: true,
-            // newUser
+            user
         });
 
     } catch (error) {
@@ -72,6 +86,19 @@ const postJob = async(req,res) =>{
     }
 }
 
+const drafts = async(req,res)=>{
+    const clientId = req.body.clientId;
+    // console.log(clientId);
+    // const validClientId = mongoose.Types.ObjectId.createFromHexString(clientId);
+    try {
+        // Retrieve jobs from the database based on the client ID
+        const jobs = await jobModel.find({ clientId:  clientId });
+        res.json(jobs);
+      } catch (error) {
+        res.status(500).json({ message: 'Internal server error' });
+        // console.log(error);
+      }
+};
 
 
-module.exports = { cregisterController, editInfo, postJob }
+module.exports = { cregisterController, editInfo, postJob, drafts }

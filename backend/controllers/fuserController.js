@@ -1,6 +1,7 @@
 const userModel = require("../models/fuserModel");
 const jobModel = require("../models/jobModule");
 const applicationModel = require("../models/applicationModel")
+const bcrypt = require('bcrypt');
 
 // const floginController = async (req, res) => {
 //     try {
@@ -29,8 +30,16 @@ const applicationModel = require("../models/applicationModel")
 // Register USer
 const fregisterController = async (req, res) => {
     try {
-        const newUser = new userModel(req.body);
-        await newUser.save();
+        // const newUser = new userModel(req.body);
+        // await newUser.save();
+        const {name, email, password} = req.body;
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const user = userModel.create({
+          name,
+          email,
+          password
+        });
+        delete (await user).password
         res.status(201).json({
             success: true,
             newUser
@@ -48,11 +57,11 @@ const fregisterController = async (req, res) => {
 
 const search = async (req, res) => {
     try {
-        const query = req.param; // The attribute being searched, passed as a URL parameter
+        const query = req.body.query; // The attribute being searched, passed as a URL parameter
 
         // Perform a case-insensitive search using regular expressions
         const results = await jobModel.find({ title: { $regex: query, $options: 'i' } });
-
+        console.log(results);
         res.status(200).json(results); // Return the search results to the client
         // results[0].description     if we are getting multiple results we can access them using thier index.
     } catch (error) {

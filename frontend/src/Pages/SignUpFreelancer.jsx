@@ -2,6 +2,7 @@
 import React from "react";
 import logo from "../assets/logo.png";
 import { Navbar } from "flowbite-react";
+import {Link} from 'react-router-dom'
 
 function SignUpFreelancer() {
   return (
@@ -89,7 +90,8 @@ function SignUpFreelancer() {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
                 >
-                  Register
+                  <Link to='/SignuptofindWork'>Continue</Link>
+                  
                 </button>
               </div>
             </form>

@@ -1,5 +1,6 @@
 import React from "react";
 import forTalentImg from "../assets/fortalent.jpg";
+import {Link} from 'react-router-dom'
 
 function ForTalent() {
   return (
@@ -26,7 +27,9 @@ function ForTalent() {
           <hr className="bg-white h-px w-11/12 m-auto" />
           <div className="flex justify-start">
             <button className="bg-white text-gray-700 hover:bg-white-200 mx-10 my-6 py-2 px-4 rounded-full">
+              <Link to='/SignUpFreelancer'>
               Find Opportunity
+              </Link>
             </button>
           </div>
         </div>
