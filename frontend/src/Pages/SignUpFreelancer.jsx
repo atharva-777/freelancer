@@ -1,10 +1,28 @@
 ("use client");
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Navbar } from "flowbite-react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 function SignUpFreelancer() {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = await axios.post("/users/register", user);
+      console.log(data);
+    } catch (error) {
+      console.log("error occurred while registering");
+      // console.log(error)
+    }
+  };
+
   return (
     <>
       <Navbar fluid rounded className=" bg-slate-50">
@@ -28,7 +46,15 @@ function SignUpFreelancer() {
 
         <div className="mt-8 sm:mx-auto sm:w-full m-4 sm:max-w-md">
           <div className="bg-white py-8 px-4 shadow sm:rounded-lg sm:px-10">
-            <form className="space-y-6" action="#" method="POST">
+            <form
+              className="space-y-6"
+              action="#"
+              method="POST"
+              onSubmit={(e) => {
+                e.preventDefault();
+                handleSubmit(e);
+              }}
+            >
               <div>
                 <label
                   htmlFor="name"
@@ -41,6 +67,10 @@ function SignUpFreelancer() {
                     id="name"
                     name="name"
                     type="name"
+                    autoComplete="name"
+                    onChange={(e) => {
+                      setUser({ ...user, name: e.target.value });
+                    }}
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                   />
@@ -60,6 +90,9 @@ function SignUpFreelancer() {
                     name="email"
                     type="email"
                     autoComplete="email"
+                    onChange={(e) => {
+                      setUser({ ...user, email: e.target.value });
+                    }}
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                   />
@@ -79,6 +112,9 @@ function SignUpFreelancer() {
                     name="password"
                     type="password"
                     autoComplete="current-password"
+                    onChange={(e) => {
+                      setUser({ ...user, password: e.target.value });
+                    }}
                     required
                     className="appearance-none block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm placeholder-gray-400 focus:outline-none focus:ring-green-500 focus:border-green-500 sm:text-sm"
                   />
@@ -90,8 +126,8 @@ function SignUpFreelancer() {
                   type="submit"
                   className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white  bg-green-400 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-400"
                 >
-                  <Link to='/SignuptofindWork'>Continue</Link>
-                  
+                  {/* Continue */}
+                  <Link to="/SignuptofindWork">Continue</Link>
                 </button>
               </div>
             </form>

@@ -1,9 +1,11 @@
 ("use client");
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Navbar } from "flowbite-react";
+import { Link } from "react-router-dom";
 
 function JoinAsClintOrFreelancer() {
+  const [type, setType] = useState("freelancer");
   return (
     <>
       <Navbar fluid rounded className=" bg-slate-50">
@@ -42,6 +44,7 @@ function JoinAsClintOrFreelancer() {
                 <input
                   name="notification-method"
                   type="radio"
+                  onClick={() => setType("SignUpClient")}
                   className="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300"
                 />
               </div>
@@ -72,6 +75,7 @@ function JoinAsClintOrFreelancer() {
                 <input
                   name="notification-method"
                   type="radio"
+                  onClick={() => setType("SignUpFreelancer")}
                   className="focus:ring-green-500 h-4 w-4 text-green-600 border-gray-300"
                 />
               </div>
@@ -83,14 +87,14 @@ function JoinAsClintOrFreelancer() {
 
           <div className="flex flex-col space-y-4">
             <button className="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-lg">
-              Create Account
+              <Link to={`/${type}`}>Create Account</Link>
             </button>
           </div>
           <p className="mt-6 text-gray-500">
             Already have an account?{" "}
-            <a href="/login" className="text-blue-500 hover:underline">
-              Log In
-            </a>
+            <Link className="text-blue-500 hover:underline" to={"/login"}>
+              Login
+            </Link>
           </p>
         </div>
       </div>

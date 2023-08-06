@@ -1,5 +1,6 @@
 const userModel = require("../models/fuserModel");
 const clientModel = require("../models/clientModel");
+const bcrypt = require('bcrypt')
 
 const loginController = async (req, res) => {
 
@@ -8,7 +9,7 @@ const loginController = async (req, res) => {
     let user;
     console.log(email)
     console.log(password)
-
+ 
     // Search for the user in the clientModel collection
     user = await clientModel.findOne({ email });
 

@@ -28,30 +28,77 @@ const bcrypt = require('bcrypt');
 
 
 // Register USer
-const fregisterController = async (req, res) => {
-    try {
-        // const newUser = new userModel(req.body);
-        // await newUser.save();
-        const {name, email, password} = req.body;
-        const hashedPassword = await bcrypt.hash(password, 10);
-        const user = userModel.create({
-          name,
-          email,
-          password
-        });
-        delete (await user).password
-        res.status(201).json({
-            success: true,
-            newUser
-        });
+// const fregisterController = async (req, res) => {
+//     try {
+//         // const newUser = new userModel(req.body);
+//         // await newUser.save();
+//         const {name, email, password} = req.body;
+//         console.log(name, email, password);
+//         // const hashedPassword = await bcrypt.hash(password, 10);
+//         console.log('hello')
+//         const user = new userModel({
+//           name,
+//           email,
+//           password
+//         });
+//         delete (await user).password
+//         user.save()
+//         .then(()=>{
+//           console.log('saved successfully')
+//         })
+//         res.status(201).json({
+//             success: true,
+//             newUser
+//         });
 
-    } catch (error) {
-        res.status(400).json({
-            success: false,
-            error
-        })
+//     } catch (error) {
+//         res.status(400).json({
+//             success: false,
+//             error
+//         })
+//     }
+// }
+
+
+
+const fregisterController = async (req, res) => {
+  try {
+    // const newUser = new userModel(req.body);
+    // await newUser.save();
+    const { name, email, password } = req.body;
+    // Check if the email already exists in the database
+    const existingUser = await userModel.findOne({ email });
+    if (existingUser) {
+      // If the email already exists, return an error response
+      return res.status(409).json({
+        success: false,
+        error: "Email already exists",
+      });
     }
-}
+    const hashedPassword = await bcrypt.hash(password, 10);
+    console.log(name, email, hashedPassword);
+    // const user = await userModel.create({
+    //   name,
+    //   email,
+    //   password: hashedPassword
+    // });
+    const newUser = new userModel({
+      name,
+      email,
+      password: hashedPassword,
+    });
+    delete (await newUser).password;
+    res.status(201).json({
+      success: true,
+      newUser,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      // error.message,
+    });
+  }
+};
 
 
 

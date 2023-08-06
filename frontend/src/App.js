@@ -1,13 +1,13 @@
 import "./App.css";
-import Home from "./pages/Home";
 import { Route, Routes } from "react-router-dom";
-import JoinAsClintOrFreelancer from "./pages/JoinAsClintOrFreelancer";
-import Login from "./pages/Login";
-import SignUpFreelancer from "./pages/SignUpFreelancer";
-import FreelancerHomePage from "./pages/FreelancerHomePage";
-import SignUpClient from "./pages/SignUpClient";
-import SignuptofindWork from "./pages/ SignuptofindWork";
-import Chat from "./pages/Chat";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import SignUpFreelancer from "./Pages/SignUpFreelancer";
+import JoinAsClintOrFreelancer from "./Pages/JoinAsClintOrFreelancer";
+import FreelancerHomePage from "./Pages/FreelancerHomePage";
+import SignUpClient from "./Pages/SignUpClient";
+import Chat from "./Pages/Chat";
+import SignuptofindWork from './Pages/ SignuptofindWork'
 
 function App() {
   return (

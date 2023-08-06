@@ -1,4 +1,4 @@
-const express = require("express");
+ const express = require("express");
 const morgan = require("morgan");
 const cors = require("cors");
 const dotenv = require("dotenv");
@@ -47,7 +47,7 @@ app.get("/messages", async(req,res) => {
 })
 
 
-const PORT = 8080 || process.env.PORT
+const PORT = 5000 || process.env.PORT
 
 const server =  app.listen(PORT,()=>{
     console.log(`running on port ${PORT}`);
